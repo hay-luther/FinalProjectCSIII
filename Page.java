@@ -6,6 +6,8 @@ public class Page {
     String optionA;
     String optionB;
     
+    
+    
     public Page(String q, String opta, String optb) {
         question = q;
         optionA = opta;

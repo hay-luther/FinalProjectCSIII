@@ -8,6 +8,13 @@ public class runner {
         startup();
         refreshScreen();
         
+        Pages pages = new Pages();
+        
+        
+        
+    }
+    
+    public static void test() {
         Player player = new Player();
         
         Page pg1 = new Page("You approach a fork in the road", "right", "left");
@@ -22,8 +29,7 @@ public class runner {
                 System.out.println("player wins");
             else
                 System.out.println("enemy wins");
-        
-    }
+            }
     
     public static void startup() {
         String a = "";

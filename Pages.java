@@ -1,4 +1,4 @@
-public class Pages extends ListBinaryTree {
+public class Pages {
     
     
     //Page p1;
@@ -24,6 +24,30 @@ public class Pages extends ListBinaryTree {
     Page p21;
     Page p22;
     
+    TNode<Page> root;
+    TNode<Page> pp3;
+    TNode<Page> pp4;
+    TNode<Page> pp5;
+    TNode<Page> pp6;
+    TNode<Page> pp7;
+    TNode<Page> pp8;
+    TNode<Page> pp9;
+    TNode<Page> pp10;
+    TNode<Page> pp11;
+    TNode<Page> pp12;
+    TNode<Page> pp13;
+    TNode<Page> pp14;
+    TNode<Page> pp15;
+    TNode<Page> pp16;
+    TNode<Page> pp17;
+    TNode<Page> pp18;
+    TNode<Page> pp19;
+    TNode<Page> pp20;
+    TNode<Page> pp21;
+    TNode<Page> pp22;
+    
+    
+    
     public Pages() {
         p2 = new Page("A giant orge tells you to go right or left", "right", "left");
         p3 = new Page("A river appears", "swim across", "build a bridge across");
@@ -33,5 +57,23 @@ public class Pages extends ListBinaryTree {
         
         
         p10 = new Page("The mermaid is offended that you declined her offer and attacks you..", "", "");
+        
+        //after all pages are defined
+        
+        
+        
+        TNode root = new TNode(p2);
+        root.setRightChild(new TNode(p3));
+        root.setLeftChild(new TNode(p4));
+        
+        
+        
+        
     }
+    
+    
+    
+    
+    
+    
 }
