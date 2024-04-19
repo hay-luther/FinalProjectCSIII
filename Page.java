@@ -5,22 +5,26 @@ public class Page {
     String question;
     String optionA;
     String optionB;
+    boolean isViolent;
     
-    public Page(String q, String opta, String optb) {
+    
+    
+    public Page(String q, String opta, String optb, boolean iv) {
         question = q;
         optionA = opta;
         optionB = optb;
+        isViolent = iv;
     }
     
-    public String toString() {
-        return "\n" + question + "\n\n" + "Would you like to " + optionA + "(a) or " + optionB + "(b)?";
+    public String tString() {
+        return question + "\n\n" + "Would you like to " + optionA + "(a) or " + optionB + "(b)?";
     }
     
     public boolean askQuestion() {
         
         Scanner UserIn = new Scanner(System.in);
         
-        System.out.println(this.toString());
+        System.out.println(this.tString());
         String answer = UserIn.nextLine();
         
         boolean valid = answer.startsWith("a") || answer.startsWith("b");
@@ -64,7 +68,7 @@ public class Page {
         return p.getHealth() > 0;
     }
     
-    public double Attack(Enemy a, Enemy b) {
+    private double Attack(Enemy a, Enemy b) {
         double attackPower = a.attack();
         boolean dodge = b.dodge();
         

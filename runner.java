@@ -4,10 +4,19 @@ public class runner {
     
     
     public static void main(String[] args) {
+        clearScreen();
         
         startup();
-        refreshScreen();
         
+        Pages pages = new Pages();
+        
+        pages.runPages(pages.getRoot());
+        
+        
+        
+    }
+    
+    public static void test() {
         Player player = new Player();
         
         Page pg1 = new Page("You approach a fork in the road", "right", "left");
@@ -22,8 +31,7 @@ public class runner {
                 System.out.println("player wins");
             else
                 System.out.println("enemy wins");
-        
-    }
+            }
     
     public static void startup() {
         String a = "";
@@ -46,7 +54,7 @@ public class runner {
         
     }
     
-    public static void refreshScreen() {
+    public static void clearScreen() {
         System.out.print("\u000C");
     }
     
