@@ -5,22 +5,65 @@ public class Page {
     String question;
     String optionA;
     String optionB;
+    boolean isViolent;
+    boolean isSingle;
+    
+    
+    
+    public Page(String q, String opta, String optb, boolean iv, boolean is) {
+        question = q;
+        optionA = opta;
+        optionB = optb;
+        isViolent = iv;
+        isSingle = is;
+    }
+    
+    public Page(String q, String opta, String optb, boolean iv) {
+        question = q;
+        optionA = opta;
+        optionB = optb;
+        isViolent = iv;
+        isSingle = false;
+    }
     
     public Page(String q, String opta, String optb) {
         question = q;
         optionA = opta;
         optionB = optb;
+        isViolent = false;
+        isSingle = false;
     }
     
-    public String toString() {
-        return "\n" + question + "\n\n" + "Would you like to " + optionA + "(a) or " + optionB + "(b)?";
+    public Page(String q) {
+        question = q;
+        optionA = "";
+        optionB = "";
+        isViolent = false;
+        isSingle = true;
+    }
+    
+    public String tString() {
+        return question + "\n\n" + "Would you like to " + optionA + "(a) or " + optionB + "(b)?";
+    }
+    
+    public String tStringSingle() {
+        return question + "\n\n" + "Press ENTER to continue";
     }
     
     public boolean askQuestion() {
         
+        if (isViolent) {
+            return fight(runner.player, new Enemy());
+        }
+        
+        if (isSingle) {
+            return singleQuestion();
+        }
+            
+        
         Scanner UserIn = new Scanner(System.in);
         
-        System.out.println(this.toString());
+        System.out.println(this.tString());
         String answer = UserIn.nextLine();
         
         boolean valid = answer.startsWith("a") || answer.startsWith("b");
@@ -34,6 +77,15 @@ public class Page {
         boolean ret = answer.startsWith("a");
         
         return ret;
+    }
+    
+    public boolean singleQuestion() {
+        Scanner UserIn = new Scanner(System.in);
+        
+        System.out.println(this.tStringSingle());
+        String answer = UserIn.nextLine();
+        
+        return true;
     }
     
     private String helpFunction() {
@@ -64,7 +116,7 @@ public class Page {
         return p.getHealth() > 0;
     }
     
-    public double Attack(Enemy a, Enemy b) {
+    private double Attack(Enemy a, Enemy b) {
         double attackPower = a.attack();
         boolean dodge = b.dodge();
         
