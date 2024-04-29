@@ -5,17 +5,20 @@ public class Player extends Enemy{
     double health;
     double power;
     double reaction;
+    Weapons.Weapon curWeapon;
 
     public Player () {
         health = 100;
         power = 20;
         reaction = 10;
+        curWeapon = Weapons.Weapon.SWORD;
     }
     
     public Player(double h, double p, double r) {
         health = h;
         power = p; 
         reaction = r;
+        curWeapon = Weapons.Weapon.SWORD;
     }
     
     public double attack() {
@@ -36,5 +39,14 @@ public class Player extends Enemy{
     
     public void setReaction(int num) {
         reaction = num;
+    }
+    
+    public void setWeapon(Weapons.Weapon w) {
+        curWeapon = w;
+        setPower(Weapons.getValue(w));
+    }
+    
+    public Weapons.Weapon getWeapon() {
+        return curWeapon;
     }
 }

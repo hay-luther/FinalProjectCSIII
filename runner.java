@@ -3,27 +3,42 @@ import java.util.Scanner;
 public class runner {
     
     
+    static Player player;
+    static Pages pages;
+    
     public static void main(String[] args) {
+        clearScreen();
         
         startup();
-        refreshScreen();
         
+        player = new Player();
+        
+        pages = new Pages();
+        
+        pages.runPages(pages.getRoot());
+        
+        
+        
+    }
+    
+    public static void test() {
         Player player = new Player();
         
         Page pg1 = new Page("You approach a fork in the road", "right", "left");
         System.out.println(pg1.askQuestion());
+        
+        Weapons.Weapon w = Weapons.Weapon.SWORD;
         
         
         Page pg2 = new Page("Do you want to fight BOSS", "yes", "no");
         boolean a2 = pg2.askQuestion();
         System.out.println(a2);
         if (a2)
-            if (pg2.fight(player, new Enemy()))
+            if (pg2.fight(player, new Enemy(), w))
                 System.out.println("player wins");
             else
                 System.out.println("enemy wins");
-        
-    }
+            }
     
     public static void startup() {
         String a = "";
@@ -36,6 +51,8 @@ public class runner {
         a += "\n              | |                                                                                                         ";
         a += "\n              |_|                                         ";
         a += "";
+        
+        a += "\n\n Welcome to Super Adventure Game!";
         System.out.println(a);
         
         System.out.println("\n\n Welcome to Super Adventure Game!");
@@ -46,7 +63,7 @@ public class runner {
         
     }
     
-    public static void refreshScreen() {
+    public static void clearScreen() {
         System.out.print("\u000C");
     }
     
