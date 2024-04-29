@@ -74,8 +74,8 @@ public class Pages {
         //new p17
         p17 = new Page("Donkey Kong is offended that you don't give him the banana, and attacks you", "WIN FIGHT", "LOSE FIGHT", true);
         
-        p21 = new Page("You have won good job!", "Main Menu", "Quit");
-        p22 = new Page("You have lost :(", "Main Menu", "Quit");
+        p21 = new Page("You have won good job!", "Main Menu", "Quit", "reset");
+        p22 = new Page("You have lost :(", "Main Menu", "Quit", "reset");
         
         //after all pages are defined
         pp1 = new TNode<Page>(p1);

@@ -3,6 +3,7 @@ import java.lang.Math;
 public class Player extends Enemy{
     
     double health;
+    double maxHealth;
     double power;
     double reaction;
     Weapons.Weapon curWeapon;
@@ -16,6 +17,7 @@ public class Player extends Enemy{
     
     public Player(double h, double p, double r) {
         health = h;
+        maxHealth = h;
         power = p; 
         reaction = r;
         curWeapon = Weapons.Weapon.SWORD;
@@ -48,5 +50,14 @@ public class Player extends Enemy{
     
     public Weapons.Weapon getWeapon() {
         return curWeapon;
+    }
+    
+    public void resetHealth() {
+        health = 0;
+        health += maxHealth;
+    }
+    
+    public void resetWeapon() {
+        curWeapon = Weapons.Weapon.SWORD;
     }
 }

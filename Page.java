@@ -31,6 +31,18 @@ public class Page {
         changesWeapon = false;
     }
     
+    public Page(String q, String opta, String optb, String r) {
+        question = q;
+        optionA = opta;
+        optionB = optb;
+        isViolent = false;
+        isSingle = false;
+        changesWeapon = false;
+        
+        runner.player.resetHealth();
+        runner.player.resetWeapon();
+    }
+    
     public Page(String q, String opta, String optb, Weapons.Weapon w) {
         question = q;
         optionA = opta;
@@ -170,7 +182,9 @@ public class Page {
             UserIn.nextLine();
         }
         
-        return p.getHealth() > 0;
+        boolean ret = p.getHealth() > 0;
+        p.resetHealth();
+        return ret;
     }
     
     private double Attack(Enemy a, Enemy b) {
